@@ -4,13 +4,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.Normalizer;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 /**
  * Clase para el análisis de la frecuencia de aparición de letras del alfabeto español en un
  * fichero de texto. Los objetos de esta clase se construyen utilizando como argumento un objeto de
  * la clase File que representa el fichero de texto que se quiere analizar. La primera invocación al
- * método frecuencias() analiza el contenido del fichero de texto y, si se ha podido procesar,
+ * metodo frecuencias() analiza el contenido del fichero de texto y, si se ha podido procesar,
  * devuelve un vector de siempre 27 componentes de tipo entero. Las primeras 26 componentes
  * almacenan el número de apariciones de las 26 letras del alfabeto inglés. La última componente
  * almacena el número de apariciones de la letra Ñ.
@@ -36,7 +35,7 @@ public class ContadorDeLetras {
     }
 
     /**
-     * La primera vez que este método es invocado, analiza el contenido del fichero de texto asociado a este
+     * La primera vez que este metodo es invocado, analiza el contenido del fichero de texto asociado a este
      * objeto en el constructor. Devuelve un vector de 27 componentes con las frecuencias
      * absolutas de aparición de cada letra del alfabeto español en el fichero.
      *
@@ -80,5 +79,4 @@ public class ContadorDeLetras {
         }
         return frecuencias;
     }
-
 }
