@@ -2,6 +2,9 @@ package es.unizar.eina.vv6f.practica3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.Normalizer;
+import java.util.Scanner;
+import java.util.regex.Pattern;
 
 /**
  * Clase para el análisis de la frecuencia de aparición de letras del alfabeto español en un
@@ -29,7 +32,7 @@ public class ContadorDeLetras {
      *            fichero de texto cuyo contenido será analizado.
      */
     public ContadorDeLetras(File fichero) {
-        // TODO
+        this.fichero = fichero;
     }
 
     /**
@@ -48,8 +51,34 @@ public class ContadorDeLetras {
      */
     public int[] frecuencias() throws FileNotFoundException {
         if (frecuencias == null) {
-            // TODO
+            frecuencias = new int[27];
+            Scanner scanner = new Scanner(fichero, "UTF-8");
+
+            while (scanner.hasNextLine()) {
+                String linea = scanner.nextLine().toUpperCase(); // Convertimos a mayúsculas primero
+
+                // 🔹 Guardamos las Ñ antes de normalizar
+                linea = linea.replace("Ñ", "@"); // Usamos un marcador temporal para Ñ
+
+                // 🔹 Normalizamos el texto (eliminamos acentos)
+                String textoNormalizado = Normalizer.normalize(linea, Normalizer.Form.NFD);
+                textoNormalizado = textoNormalizado.replaceAll("\\p{M}", ""); // Quitamos diacríticos
+
+                // 🔹 Restauramos la Ñ
+                textoNormalizado = textoNormalizado.replace("@", "Ñ");
+
+                // 🔹 Contamos las letras
+                for (char c : textoNormalizado.toCharArray()) {
+                    if (c >= 'A' && c <= 'Z') {
+                        frecuencias[c - 'A']++; // Letras A-Z
+                    } else if (c == 'Ñ') {
+                        frecuencias[26]++; // Contador para la Ñ
+                    }
+                }
+            }
+            scanner.close();
         }
         return frecuencias;
     }
+
 }
