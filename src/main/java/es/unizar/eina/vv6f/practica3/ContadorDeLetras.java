@@ -22,7 +22,7 @@ import java.util.Scanner;
  */
 public class ContadorDeLetras {
     private File fichero;
-    private int[] frecuencias = null;
+    private int[] frecuencias;
 
     /**
      * Construye un ContadorDeLetras para frecuencias la frecuencia en las que aparecen las letras
@@ -32,6 +32,7 @@ public class ContadorDeLetras {
      */
     public ContadorDeLetras(File fichero) {
         this.fichero = fichero;
+        this.frecuencias = null;
     }
 
     /**
