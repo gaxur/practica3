@@ -1,5 +1,5 @@
 import es.unizar.eina.vv6f.practica3.ContadorDeLetras;
-import static jdk.jpackage.internal.WixAppImageFragmentBuilder.Component.File;
+import java.io.File;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
