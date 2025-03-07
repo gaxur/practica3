@@ -57,18 +57,37 @@ public class ContadorDeLetras {
             while (scanner.hasNextLine()) {
                 String linea = scanner.nextLine().toUpperCase(); // Convertimos a mayúsculas primero
 
-                // 🔹 Guardamos las Ñ antes de normalizar
-                linea = linea.replace("Ñ", "@"); // Usamos un marcador temporal para Ñ
+                // Extraemos todas las Ñ antes de la normalización
+                StringBuilder soloN = new StringBuilder(); // Las Ñ no se normalizan
+                StringBuilder restoTexto = new StringBuilder();
 
-                // 🔹 Normalizamos el texto (eliminamos acentos)
-                String textoNormalizado = Normalizer.normalize(linea, Normalizer.Form.NFD);
-                textoNormalizado = textoNormalizado.replaceAll("\\p{M}", ""); // Quitamos diacríticos
+                for (char c : linea.toCharArray()) {
+                    if (c == 'Ñ') {
+                        soloN.append(c);  // Guardamos las Ñ en su sitio
+                    } else {
+                        restoTexto.append(c);  // Guardamos el resto de caracteres
+                    }
+                }
 
-                // 🔹 Restauramos la Ñ
-                textoNormalizado = textoNormalizado.replace("@", "Ñ");
+                // Normalizamos el resto del texto sin tocar la Ñ
+                String textoNormalizado = Normalizer.normalize(restoTexto.toString(), Normalizer.Form.NFD);
+                textoNormalizado = textoNormalizado.replaceAll("\\p{InCombiningDiacriticalMarks}+", ""); // Quitamos diacríticos
 
-                // 🔹 Contamos las letras
-                for (char c : textoNormalizado.toCharArray()) {
+
+                /*
+                textoNormalizado = textoNormalizado.replaceAll("º", "O");
+                textoNormalizado = textoNormalizado.replaceAll("ᵃ", "A");
+                textoNormalizado = textoNormalizado.replaceAll("ᵉ", "E");
+                textoNormalizado = textoNormalizado.replaceAll("ᶦ", "I");
+                textoNormalizado = textoNormalizado.replaceAll("ᵒ", "O");
+                textoNormalizado = textoNormalizado.replaceAll("ᵘ", "U");
+                */
+
+                // Concatenamos la parte normalizada con la parte de Ñ intacta
+                String textoFinal = soloN + textoNormalizado;
+
+                // Contamos las letras
+                for (char c : textoFinal.toCharArray()) {
                     if (c >= 'A' && c <= 'Z') {
                         frecuencias[c - 'A']++; // Letras A-Z
                     } else if (c == 'Ñ') {
@@ -81,3 +100,6 @@ public class ContadorDeLetras {
         return frecuencias;
     }
 }
+
+
+//InCombiningDiacriticalMarks

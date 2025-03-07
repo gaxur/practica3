@@ -36,25 +36,42 @@ public class Main {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         System.out.print("Introduce el nombre del fichero: ");
         String nombreFichero = scanner.nextLine();
-        scanner.close();
 
         File fichero = new File(nombreFichero);
         if (!fichero.exists() || !fichero.canRead()) {
             System.out.printf("El fichero '%s' no existe o no se puede leer.%n", nombreFichero);
+            scanner.close();
             return;
         }
 
         try {
             ContadorDeLetras contador = new ContadorDeLetras(fichero);
             int[] frecuencias = contador.frecuencias();
-            for (int i = 0; i < 26; i++) {
-                System.out.printf(FORMATO_SALIDA_FRECUENCIAS, (char) ('A' + i), frecuencias[i]);
+
+            // Orden alfabético correcto incluyendo la Ñ
+            char[] letrasOrdenadas = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ".toCharArray();
+
+            for (int i = 0; i < letrasOrdenadas.length; i++) {
+                char letra = letrasOrdenadas[i];
+                int indice;
+
+                if (letra == 'Ñ') {
+                    indice = 26; // La Ñ está almacenada en la última posición del array (27)
+                } else if (letra > 'N') {
+                    indice = letra - 'A' - 1; // Ajustar índice para que Ñ no desplace las demás
+                } else {
+                    indice = letra - 'A';
+                }
+
+                System.out.printf(FORMATO_SALIDA_FRECUENCIAS, letra, frecuencias[indice]);
             }
-            System.out.printf(FORMATO_SALIDA_FRECUENCIAS, 'Ñ', frecuencias[26]);
         } catch (FileNotFoundException e) {
-            System.out.println("Error: No se pudo abrir el fichero.");
+            System.out.printf("Error: No se pudo abrir el fichero '%s'.%n", nombreFichero);
+        } finally {
+            scanner.close();
         }
     }
 }
