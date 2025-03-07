@@ -3,6 +3,8 @@ package es.unizar.eina.vv6f.practica3;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.Normalizer;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -23,6 +25,7 @@ import java.util.Scanner;
 public class ContadorDeLetras {
     private File fichero;
     private int[] frecuencias;
+
 
     /**
      * Construye un ContadorDeLetras para frecuencias la frecuencia en las que aparecen las letras
@@ -74,15 +77,14 @@ public class ContadorDeLetras {
                 textoNormalizado = textoNormalizado.replaceAll("\\p{InCombiningDiacriticalMarks}+", ""); // Quitamos diacríticos
 
 
-                /*
                 textoNormalizado = textoNormalizado.replaceAll("º", "O");
                 textoNormalizado = textoNormalizado.replaceAll("ᵃ", "A");
                 textoNormalizado = textoNormalizado.replaceAll("ᵉ", "E");
                 textoNormalizado = textoNormalizado.replaceAll("ᶦ", "I");
                 textoNormalizado = textoNormalizado.replaceAll("ᵒ", "O");
                 textoNormalizado = textoNormalizado.replaceAll("ᵘ", "U");
-                */
-
+                textoNormalizado = textoNormalizado.replaceAll("[¹²³⁴⁵⁶⁷⁸⁹⁰]", "");
+                
                 // Concatenamos la parte normalizada con la parte de Ñ intacta
                 String textoFinal = soloN + textoNormalizado;
 
@@ -100,6 +102,3 @@ public class ContadorDeLetras {
         return frecuencias;
     }
 }
-
-
-//InCombiningDiacriticalMarks

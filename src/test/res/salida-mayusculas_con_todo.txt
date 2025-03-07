@@ -1,7 +1,7 @@
 Nombre de un fichero de texto:
 A:       6
 B:       1
-C:       1
+C:       2
 D:       1
 E:       6
 F:       1
