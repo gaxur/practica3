@@ -37,7 +37,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Introduce el nombre del fichero: ");
+        System.out.print("Nombre de un fichero de texto: ");
         String nombreFichero = scanner.nextLine();
 
         File fichero = new File(nombreFichero);
