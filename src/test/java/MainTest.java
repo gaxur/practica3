@@ -32,7 +32,7 @@ public class MainTest {
         salidaCapturada = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(salidaCapturada);
         System.setOut(printStream);
-        System.setErr(printStream); // 🔹 Redirigir también System.err
+        System.setErr(printStream); // Redirigir también System.err
     }
 
     @AfterEach
@@ -170,7 +170,7 @@ public class MainTest {
         // Ejecutamos el método main
         Main.main(new String[]{});
 
-        // Comparamos la salida generada con la esperada
+        // Comparamos la s´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´alida generada con la esperada
         compararSalidaConEsperada("salida-quijote.txt");
     }
 
@@ -225,7 +225,4 @@ public class MainTest {
         // Comparar las líneas de ambos archivos
         assertIterableEquals(lineasEsperadas, lineasGeneradas, "La salida del programa no coincide con la esperada.");
     }
-
-
-
 }

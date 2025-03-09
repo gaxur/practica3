@@ -1,4 +1,4 @@
-Nombre de un fichero de texto: 
+Nombre de un fichero de texto:
 A:  200495
 B:   24147
 C:   59436
@@ -26,4 +26,3 @@ W:       2
 X:     377
 Y:   25115
 Z:    6491
-

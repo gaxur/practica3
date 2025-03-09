@@ -51,23 +51,24 @@ public class Main {
             ContadorDeLetras contador = new ContadorDeLetras(fichero);
             int[] frecuencias = contador.frecuencias();
 
-            // Orden alfabético correcto incluyendo la Ñ
+            // Definir el orden correcto de las letras incluyendo la Ñ después de la N
             char[] letrasOrdenadas = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ".toCharArray();
+            int[] frecuenciasReordenadas = new int[27];
 
+            // Copiar frecuencias de la A a la N (sin cambios)
+            System.arraycopy(frecuencias, 0, frecuenciasReordenadas, 0, 14);
+
+            // Insertar la Ñ en su posición correcta
+            frecuenciasReordenadas[14] = frecuencias[26]; // La Ñ siempre está en la posición 26 del array original
+
+            // Copiar frecuencias de la O a la Z (ajustando el desplazamiento correcto)
+            System.arraycopy(frecuencias, 14, frecuenciasReordenadas, 15, 12);
+
+            // Imprimir las frecuencias con la Ñ correctamente posicionada
             for (int i = 0; i < letrasOrdenadas.length; i++) {
-                char letra = letrasOrdenadas[i];
-                int indice;
-
-                if (letra == 'Ñ') {
-                    indice = 26; // La Ñ está almacenada en la última posición del array (27)
-                } else if (letra > 'N') {
-                    indice = letra - 'A' - 1; // Ajustar índice para que Ñ no desplace las demás
-                } else {
-                    indice = letra - 'A';
-                }
-
-                System.out.printf(FORMATO_SALIDA_FRECUENCIAS, letra, frecuencias[indice]);
+                System.out.printf(FORMATO_SALIDA_FRECUENCIAS, letrasOrdenadas[i], frecuenciasReordenadas[i]);
             }
+
         } catch (FileNotFoundException e) {
             System.out.printf("Error: No se pudo abrir el fichero '%s'.%n", nombreFichero);
         } finally {
