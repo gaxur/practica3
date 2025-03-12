@@ -99,6 +99,6 @@ public class ContadorDeLetras {
             }
             scanner.close();
         }
-        return frecuencias;
+        return frecuencias; // Ira mas rapido cuando sea != null
     }
 }

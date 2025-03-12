@@ -1,3 +1,9 @@
+/*
+Carlos Alejos Fumanal (872342)
+Mario Caudevilla Ruiz (870421)
+Marcos Galán Carrillo (874095)
+ */
+
 import es.unizar.eina.vv6f.practica3.Main;
 
 import org.junit.jupiter.api.*;
@@ -50,160 +56,79 @@ public class MainTest {
 
     @Test
     public void testMainMinusculasBasico() throws IOException {
-
-        // Simulamos la entrada de usuario con el nombre del archivo de prueba
-        String entradaUsuario = RUTA_ENTRADA + "minusculas_basico.txt\n";
-        System.setIn(new ByteArrayInputStream(entradaUsuario.getBytes()));
-
-        // Ejecutamos el método main
-        Main.main(new String[]{});
-
         // Comparamos la salida generada con la esperada
-        compararSalidaConEsperada("salida-minusculas_basico.txt");
+        compararSalidaConEsperada(RUTA_ENTRADA + "minusculas_basico.txt\n", "salida-minusculas_basico.txt");
     }
 
     @Test
     public void testMainMinusculasConTodo() throws IOException {
-
-        // Simulamos la entrada de usuario con el nombre del archivo de prueba
-        String entradaUsuario = RUTA_ENTRADA + "minusculas_con_todo.txt\n";
-        System.setIn(new ByteArrayInputStream(entradaUsuario.getBytes()));
-
-        // Ejecutamos el método main
-        Main.main(new String[]{});
-
         // Comparamos la salida generada con la esperada
-        compararSalidaConEsperada("salida-minusculas_con_todo.txt");
+        compararSalidaConEsperada(RUTA_ENTRADA + "minusculas_con_todo.txt\n", "salida-minusculas_con_todo.txt");
     }
 
     @Test
     public void testMainMayusculasBasico() throws IOException {
-
-        // Simulamos la entrada de usuario con el nombre del archivo de prueba
-        String entradaUsuario = RUTA_ENTRADA + "mayusculas_basico.txt\n";
-        System.setIn(new ByteArrayInputStream(entradaUsuario.getBytes()));
-
-        // Ejecutamos el método main
-        Main.main(new String[]{});
-
         // Comparamos la salida generada con la esperada
-        compararSalidaConEsperada("salida-mayusculas_basico.txt");
+        compararSalidaConEsperada(RUTA_ENTRADA + "mayusculas_basico.txt\n", "salida-mayusculas_basico.txt");
     }
 
     @Test
     public void testMainMayusculasConTodo() throws IOException {
-
-        // Simulamos la entrada de usuario con el nombre del archivo de prueba
-        String entradaUsuario = RUTA_ENTRADA + "mayusculas_con_todo.txt\n";
-        System.setIn(new ByteArrayInputStream(entradaUsuario.getBytes()));
-
-        // Ejecutamos el método main
-        Main.main(new String[]{});
-
         // Comparamos la salida generada con la esperada
-        compararSalidaConEsperada("salida-mayusculas_con_todo.txt");
+        compararSalidaConEsperada(RUTA_ENTRADA + "mayusculas_con_todo.txt\n", "salida-mayusculas_con_todo.txt");
     }
 
     @Test
     public void testMainCaracteresEspeciales() throws IOException {
-
-        // Simulamos la entrada de usuario con el nombre del archivo de prueba
-        String entradaUsuario = RUTA_ENTRADA + "caracteres_especiales.txt\n";
-        System.setIn(new ByteArrayInputStream(entradaUsuario.getBytes()));
-
-        // Ejecutamos el método main
-        Main.main(new String[]{});
-
         // Comparamos la salida generada con la esperada
-        compararSalidaConEsperada("salida-caracteres_especiales.txt");
+        compararSalidaConEsperada(RUTA_ENTRADA + "caracteres_especiales.txt\n", "salida-caracteres_especiales.txt");
     }
 
     @Test
     public void testMainVocalesVoladas() throws IOException {
-
-        // Simulamos la entrada de usuario con el nombre del archivo de prueba
-        String entradaUsuario = RUTA_ENTRADA + "vocales_voladas.txt\n";
-        System.setIn(new ByteArrayInputStream(entradaUsuario.getBytes()));
-
-        // Ejecutamos el método main
-        Main.main(new String[]{});
-
         // Comparamos la salida generada con la esperada
-        compararSalidaConEsperada("salida-vocales_voladas.txt");
+        compararSalidaConEsperada( RUTA_ENTRADA + "vocales_voladas.txt\n", "salida-vocales_voladas.txt");
     }
 
     @Test
     public void testMainDigitos() throws IOException {
-
-        // Simulamos la entrada de usuario con el nombre del archivo de prueba
-        String entradaUsuario = RUTA_ENTRADA + "digitos.txt\n";
-        System.setIn(new ByteArrayInputStream(entradaUsuario.getBytes()));
-
-        // Ejecutamos el método main
-        Main.main(new String[]{});
-
         // Comparamos la salida generada con la esperada
-        compararSalidaConEsperada("salida-digitos.txt");
+        compararSalidaConEsperada(RUTA_ENTRADA + "digitos.txt\n", "salida-digitos.txt");
     }
 
     @Test
     public void testMainVacio() throws IOException {
-
-        // Simulamos la entrada de usuario con el nombre del archivo de prueba
-        String entradaUsuario = RUTA_ENTRADA + "vacio.txt\n";
-        System.setIn(new ByteArrayInputStream(entradaUsuario.getBytes()));
-
-        // Ejecutamos el método main
-        Main.main(new String[]{});
-
         // Comparamos la salida generada con la esperada
-        compararSalidaConEsperada("salida-vacio.txt");
+        compararSalidaConEsperada(RUTA_ENTRADA + "vacio.txt\n", "salida-vacio.txt");
     }
 
     @Test
     public void testMainQuijote() throws IOException {
-
-        // Simulamos la entrada de usuario con el nombre del archivo de prueba
-        String entradaUsuario = RUTA_ENTRADA_TXT + "quijote.txt\n";
-        System.setIn(new ByteArrayInputStream(entradaUsuario.getBytes()));
-
-        // Ejecutamos el método main
-        Main.main(new String[]{});
-
-        // Comparamos la s´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´alida generada con la esperada
-        compararSalidaConEsperada("salida-quijote.txt");
+        // Comparamos la salida generada con la esperada
+        compararSalidaConEsperada(RUTA_ENTRADA_TXT + "quijote.txt\n", "salida-quijote.txt");
     }
 
     @Test
     public void testMainHamlet() throws IOException {
-
-        // Simulamos la entrada de usuario con el nombre del archivo de prueba
-        String entradaUsuario = RUTA_ENTRADA_TXT + "hamlet.txt\n";
-        System.setIn(new ByteArrayInputStream(entradaUsuario.getBytes()));
-
-        // Ejecutamos el método main
-        Main.main(new String[]{});
-
         // Comparamos la salida generada con la esperada
-        compararSalidaConEsperada("salida-hamlet.txt");
+        compararSalidaConEsperada(RUTA_ENTRADA_TXT + "hamlet.txt\n","salida-hamlet.txt");
     }
 
     @Test
     public void testMainRegenta() throws IOException {
+        // Comparamos la salida generada con la esperada
+        compararSalidaConEsperada(RUTA_ENTRADA_TXT + "regenta.txt\n", "salida-regenta.txt");
+    }
+
+
+    private void compararSalidaConEsperada(String nombreEntrada, String nombreSalidaEsperada) throws IOException {
 
         // Simulamos la entrada de usuario con el nombre del archivo de prueba
-        String entradaUsuario = RUTA_ENTRADA_TXT + "regenta.txt\n";
-        System.setIn(new ByteArrayInputStream(entradaUsuario.getBytes()));
+        System.setIn(new ByteArrayInputStream(nombreEntrada.getBytes()));
 
         // Ejecutamos el método main
         Main.main(new String[]{});
 
-        // Comparamos la salida generada con la esperada
-        compararSalidaConEsperada("salida-regenta.txt");
-    }
-
-
-    private void compararSalidaConEsperada(String nombreSalidaEsperada) throws IOException {
         // Verificar que `salidaCapturada` no sea null antes de usarla
         assertNotNull(salidaCapturada, "Error: `salidaCapturada` es null.");
 
