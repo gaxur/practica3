@@ -2,7 +2,7 @@
 Carlos Alejos Fumanal (872342)
 Mario Caudevilla Ruiz (870421)
 Marcos Galán Carrillo (874095)
- */
+*/
 
 import es.unizar.eina.vv6f.practica3.ContadorDeLetras;
 import java.io.File;
@@ -160,5 +160,4 @@ public class ContadorDeLetrasTest {
             assertArrayEquals(frecuenciasEsperadas, frecuenciasGeneradasReordenadas, "Las frecuencias no coinciden.");
         }
     }
-
 }

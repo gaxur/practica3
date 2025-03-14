@@ -2,7 +2,7 @@
 Carlos Alejos Fumanal (872342)
 Mario Caudevilla Ruiz (870421)
 Marcos Galán Carrillo (874095)
- */
+*/
 
 import es.unizar.eina.vv6f.practica3.Main;
 
